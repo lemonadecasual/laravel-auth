@@ -1,0 +1,226 @@
+main {
+    @apply flex flex-col min-h-screen items-center gap-16 bg-[#fafafb];
+
+    header {
+    }
+
+    article {
+        @apply w-[1280px] flex flex-col gap-5;
+
+        header {
+            @apply relative h-[330px] rounded-2xl bg-white;
+
+            wallpaper {
+                @apply relative block w-full h-[260px];
+
+                img {
+                    @apply rounded-t-2xl w-full h-full absolute;
+                }
+
+                action {
+                    @apply text-white rounded-xl cursor-pointer border text-xs border-white bg-black/30 h-9 w-24 flex items-center justify-center top-6 absolute right-6 z-40;
+                }
+            }
+
+            profile {
+                @apply absolute w-full flex gap-6 bottom-6 px-6;
+
+                picture img {
+                    @apply rounded-full border-8 border-white w-40 h-40;
+                }
+
+                information {
+                    @apply flex flex-col justify-center;
+
+                    name {
+                        @apply text-2xl font-semibold text-white;
+                    }
+
+                    wallet {
+                        @apply text-[#D5D5DC];
+                    }
+                }
+            }
+        }
+
+        dashboard {
+            @apply flex gap-4;
+
+            nav {
+                @apply w-[270px] shrink-0 flex flex-col gap-4;
+
+                widgect[data-id="invidual_explorer"] {
+                    card {
+                        @apply relative;
+
+                        inside {
+                            @apply flex flex-col gap-1;
+
+                            qrcode {
+                                @apply w-max h-max block mx-auto;
+
+                                img {
+                                    @apply block w-24 h-24 mx-auto;
+                                }
+                            }
+
+                            name {
+                                @apply text-center block font-medium w-full;
+                            }
+
+                            address {
+                                @apply text-center text-sm block break-all mx-auto text-[#999FAE];
+                            }
+                        }
+                    }
+                }
+
+                widgect[data-id="contact_me"] {
+                    card {
+                        inside {
+                            @apply flex flex-col px-0 gap-4;
+
+                            motto {
+                                @apply text-center border-b px-4 pb-4 border-[#F1F1F5];
+                            }
+
+                            list {
+                                @apply px-4 flex flex-col gap-4;
+
+                                item {
+                                    @apply flex items-center gap-4;
+
+                                    icon {
+                                        @apply text-[#92929d] block h-max;
+                                    }
+
+                                    label {
+                                        @apply text-sm;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            content {
+                @apply flex flex-col gap-4;
+
+                widgect[data-id="about_me"] {
+                    subject {
+                        // @apply border-transparent;
+                    }
+
+                    content {
+                        @apply flex flex-col gap-4;
+
+                        p {
+                            strong {
+                            }
+                        }
+                    }
+                }
+
+                widgect[data-id="user_case_categories"] {
+                    @apply flex flex-col gap-4;
+
+                    subject {
+                        @apply px-6 font-semibold;
+                    }
+
+                    content {
+                        @apply flex flex-row flex-wrap gap-4;
+
+                        category {
+                            @apply w-[236px];
+
+                            card {
+                                subject {
+                                    @apply py-3 text-[15px];
+                                }
+
+                                inside {
+                                    @apply px-0 py-0 flex flex-row;
+
+                                    child {
+                                        @apply flex flex-col items-center gap-2 w-20 py-4;
+
+                                        icon {
+                                            @apply w-10 h-10 rounded border flex items-center justify-center border-[#E3E6E9];
+                                        }
+
+                                        label {
+                                            @apply text-[11px] text-[#999FAE];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                widgect[data-id="contact-card"] {
+                    @apply flex flex-col gap-4;
+
+                    subject {
+                        @apply px-6 font-semibold;
+                    }
+
+                    card {
+                        inside {
+                            @apply flex flex-row gap-4;
+
+                            location {
+                                @apply flex-shrink-0 grow w-max flex;
+
+                                img {
+                                    @apply w-[360px] block rounded-xl;
+                                }
+                            }
+
+                            information {
+                                @apply flex flex-col gap-4;
+
+                                field {
+                                    label {
+                                        @apply block text-sm text-[#B5B5BE];
+                                    }
+
+                                    value {
+                                        @apply break-normal block w-full;
+
+                                        phone {
+                                            @apply block;
+                                        }
+
+                                        icons {
+                                            @apply flex py-1 gap-2;
+
+                                            item {
+                                                @apply w-9 h-9;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //globals
+    card {
+        @apply bg-white flex-col flex rounded-2xl;
+
+        subject {
+            @apply border-b border-[#F1F1F5] block font-semibold px-5 py-5;
+        }
+
+        inside {
+            @apply px-5 py-5;
+        }
+    }
+}

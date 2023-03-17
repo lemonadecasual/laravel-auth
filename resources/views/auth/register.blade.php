@@ -1,5 +1,6 @@
 <x-layout>
     <main class="relative min-h-screen overflow-hidden">
+
         <background__left class="h-screen min-w-[50vw] pointer-events-none -z-50 absolute left-0 top-0 max-h-screen"><img
                 class="block h-screen pointer-events-none" src="{{ asset('assets/img/auth/register.webp') }}" />
         </background__left>
@@ -10,7 +11,18 @@
                 src="{{ asset('assets/img/auth/register-right.webp') }}" />
         </background__right>
         <aside class="flex flex-col justify-center items-center absolute right-0 top-0 w-[50vw] h-screen">
-            <form class="flex flex-col gap-4">
+
+
+
+            <form class="flex  flex-col gap-4 relative ">
+                <error class="rounded hidden w-full absolute -top-56 bg-error text-white p-8">
+                    <span class="text-error-text font-semibold">
+                        Register Faild :
+                    </span>
+                    <error_msg>
+                    </error_msg>
+                </error>
+
                 <form__title class="flex flex-col items-center justify-center gap-2">
                     <form__title__suptitle class="text-[#B5B5BE]">
                         GET STARTED</form__title__suptitle>
@@ -82,6 +94,19 @@
                                 class=" text-[#B5B5BE] flex gap-4 px-2"> <i
                                     class="fa-regular fa-venus-mars text-[#92929d]"></i>Gendar </span>
                         </form__fields__row__col>
+
+                        <form__fields__row__col class="relative">
+                            <label
+                                class="flex items-center gap-2 cursor-pointer  w-full justify-center border-b-2 px-4 py-4 border-[#E2E2EA]  "><span
+                                     class="block text-sm">Male</span>
+                                <form__fields__row__col__input>
+                                    <input
+                                        class="border-[#E2E2EA]   h-max bg-white w-full placeholder:text-[#B5B5BE] border-l-none border-r-none border-t-none border-b-2 flex items-center px-0"
+                                        type="radio" checked  name="gendar" value="male" />
+                                </form__fields__row__col__input>
+                            </label>
+                        </form__fields__row__col>
+
                         <form__fields__row__col class="relative">
                             <label
                                 class="flex items-center gap-2 cursor-pointer  w-full justify-center border-b-2 px-4 py-4 border-[#E2E2EA]  "><span
@@ -89,21 +114,11 @@
                                 <form__fields__row__col__input>
                                     <input
                                         class="border-[#E2E2EA]   h-max bg-white w-full placeholder:text-[#B5B5BE] border-l-none border-r-none border-t-none border-b-2 flex items-center px-0"
-                                        type="radio" name="gendar" />
+                                        type="radio"    name="gendar" value="female" />
                                 </form__fields__row__col__input>
                             </label>
                         </form__fields__row__col>
-                        <form__fields__row__col class="relative">
-                            <label
-                                class="flex items-center gap-2 cursor-pointer  w-full justify-center border-b-2 px-4 py-4 border-[#E2E2EA]  "><span
-                                    class="block text-sm">Male</span>
-                                <form__fields__row__col__input>
-                                    <input
-                                        class="border-[#E2E2EA]   h-max bg-white w-full placeholder:text-[#B5B5BE] border-l-none border-r-none border-t-none border-b-2 flex items-center px-0"
-                                        type="radio" name="gendar" />
-                                </form__fields__row__col__input>
-                            </label>
-                        </form__fields__row__col>
+                     
                         <form__fields__row__col class="relative">
                             <label
                                 class="flex items-center gap-2 cursor-pointer  w-full justify-center border-b-2 px-4 py-4 border-[#E2E2EA]  "><span
@@ -111,7 +126,7 @@
                                 <form__fields__row__col__input>
                                     <input
                                         class="border-[#E2E2EA]   h-max bg-white w-full placeholder:text-[#B5B5BE] border-l-none border-r-none border-t-none border-b-2 flex items-center px-0"
-                                        type="radio" name="gendar" />
+                                        type="radio" name="gendar" value="other" />
                                 </form__fields__row__col__input>
                             </label>
                         </form__fields__row__col>

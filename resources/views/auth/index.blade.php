@@ -5,6 +5,8 @@
         }
     </script>
     <main class="relative min-h-screen overflow-hidden">
+
+
         <div class="absolute w-full -z-50 h-full pointer-events-none background">
             <div class="absolute right-0 top-0 max-w-[50vw] max-h-screen background__right">
                 <img class="block max-w-[50vw] max-h-[100vh]"
@@ -51,6 +53,7 @@
             } else {
                 if (user.hasOwnProperty("account")) {
                     localStorage.setItem("user_account", user.account);
+                    window.location.href = `{{ route('auth-register') }}`;
                 }
             }
         };

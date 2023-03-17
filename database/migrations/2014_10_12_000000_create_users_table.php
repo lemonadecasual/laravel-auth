@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('password');
             $table->string('year');
             $table->string('month');
             $table->string('day');
             $table->string('gendar');
+            $table->longText('info_about')->nullable();
+            $table->longText('info_contact')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });

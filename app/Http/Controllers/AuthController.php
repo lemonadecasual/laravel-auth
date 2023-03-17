@@ -41,12 +41,22 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-    
 
+        $request->validate([
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'gendar' => ['required'],
+            'year' => ['required', 'integer', 'min:1900'],
+            'month' => ['required'],
+            'day' => ['required', 'integer', 'min:1', 'max:31'],
+            'wallet' => ['required']
+        ]);
 
         $user = User::create([
             "firstname" => $request->firstname,
             "lastname" => $request->lastname,
+            "gendar" => $request->gendar,
             "email" => $request->email,
             "year" => $request->year,
             "month" => $request->month,
@@ -60,13 +70,16 @@ class AuthController extends Controller
     }
 
 
-
-
-
-
-
-
-
+    public function wallet_exists(Request $request)
+    {
+        $wallet = $request->wallet;
+        $user = User::where('wallet', $wallet)->first();
+        if ($user) {
+            return response()->json(['exists' => true]);
+        } else {
+            return response()->json(['exists' => false]);
+        }
+    }
     public function logout(Request $request)
     {
         Auth::logout();
@@ -76,5 +89,11 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function get_user(Request $request)
+    {
+        $wallet = $request->wallet;
+        $user = User::where('wallet', $wallet)->first();
+        return response()->json($user);
     }
 }
